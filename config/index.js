@@ -9,9 +9,16 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
-
+    assetsPublicPath: './',
+    proxyTable: {
+      '/api': {
+        //https://cut.52mozu.com/
+        target: 'http://8.136.157.10:8032',
+        changeOrigin: true,
+        logLevel: 'debug',
+        pathRewrite: { '^/api': '' },
+      }
+    },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -20,7 +27,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
